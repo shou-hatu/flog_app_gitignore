@@ -68,7 +68,7 @@ header {
 
 .top-text {
     font-family: "筑紫B丸ゴシック";
-    font-size: 20px;
+    text-align: center;
     padding: 5px 10px;
     margin: 0 auto;
     height: fit-content;
