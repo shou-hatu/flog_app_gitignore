@@ -3,10 +3,10 @@ from django.contrib.auth import authenticate, get_user_model, login
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from quiz.models import Player_result
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.db.models import Max, Min
 
-from .forms import SignupForm
+from .forms import SignupForm, UserUpdateForm
 
 User = get_user_model()
 
@@ -46,3 +46,23 @@ def user_profile_view(request, username):
         'min_rate_confession': min_rate_confession
     }
     return render(request, 'accounts/user_profile.html', params)
+
+
+def user_edit_view(request):
+    if request.method == 'POST':
+        user_form = UserUpdateForm(request.POST, instance=request.user)
+        # password_form = PasswordChangeForm(request.user, request.POST)
+        if user_form.is_valid():
+            user_form.save()
+            # password_form.save()
+            # update_session_auth_hash(request, password_form.user)
+            return redirect('accounts/user_profile')  # 更新後にプロフィールページにリダイレクト
+    else:
+        user_form = UserUpdateForm(instance=request.user)
+        # password_form = PasswordChangeForm(request.user)
+
+    context = {
+        'user_form': user_form,
+        # 'password_form': password_form,
+    }
+    return render(request, 'accounts/user_profile.html', context)
