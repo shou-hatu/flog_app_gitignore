@@ -1,15 +1,20 @@
-{% extends 'quiz/base.html' %}
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}<link href="{% static 'css/result.css' %}" rel="stylesheet" >{% endblock %}
+{% block title %}結果発表{% endblock %}
 {% block content %}
-<div class="card-body">
-    <h2 class="card-title">結果</h2>
-
-    <p class="card-text">蛙化度: {{percent}}%</p>
-    <p class="card-text">Total questions: {{answered_num}}</p>
-    <h5>All the best for next quiz!</h5>
-    <a href="{% url 'welcome:welcome'%}" style="text-decoration: none;">ホーム</a>
-</div>
-</div>
-</div>
-
+<div class="top">
+    <div class="container">
+        <div class="result">
+            <h3>結果</h3>
+            <h4>蛙化度: {{percent}}%</h4><br>
+            <h4>解いた問題の数: {{answered_num}}</h4><br>
+            <h4>正解した問題数: </h4>
+            <h4>各問題の蛙化度: </h4>
+        </div>
+        <div class="btn">
+            <a href="{% url 'welcome:welcome'%}" style="text-decoration: none;">ホーム画面に戻る</a>
+        </div>
+    </div>
 </div>
 {% endblock %}
