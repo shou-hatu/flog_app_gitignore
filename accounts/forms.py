@@ -1,3 +1,4 @@
+from typing import Any
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
@@ -10,6 +11,12 @@ class SignupForm(UserCreationForm):
         model = User  # model = get_user_model() は NG
         # オブジェクトを作成
         fields = ("username", "email")
+    
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        super().__init__(*args, **kwargs)
+        self.fields["username"].help_text = ''
+        self.fields["password1"].help_text = ''
+        self.fields["password2"].help_text = ''
 
 class UserUpdateForm(forms.ModelForm):
     class Meta:
