@@ -6,11 +6,10 @@
 <div class="top">
     <div class="container">
         <div class="result">
-            <h3>結果</h3>
-            <h4>蛙化度: {{percent}}%</h4><br>
-            <h4>解いた問題の数: {{answered_num}}</h4><br>
-            <h4>正解した問題数: </h4>
-            <h4>各問題の蛙化度: </h4>
+            <h3>\結果発表/</h3>
+            <h4>&emsp;&emsp;&emsp;&emsp;蛙化度:<span class="char-1">&emsp;&emsp;{{percent}}</span>%</h4>
+            <h4>解いた問題の数: &emsp;&emsp;{{answered_num}}</h4>
+            <h4>各問題の蛙化度:&emsp;①〜％、②〜％、③〜％、④〜％</h4>
         </div>
         <div class="btn">
             <a href="{% url 'welcome:welcome'%}" style="text-decoration: none;">ホーム画面に戻る</a>
