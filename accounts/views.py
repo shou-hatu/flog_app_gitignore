@@ -1,10 +1,11 @@
 from django.conf import settings
-from django.contrib.auth import authenticate, get_user_model, login
+from django.contrib.auth import authenticate, get_user_model, login,logout
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from quiz.models import Player_result
 from django.shortcuts import render, redirect
 from django.db.models import Max, Min
+
 
 from .forms import SignupForm, UserUpdateForm
 
@@ -66,3 +67,7 @@ def user_edit_view(request):
         # 'password_form': password_form,
     }
     return render(request, 'accounts/user_profile.html', context)
+
+def logout_view(request):
+    logout(request)
+    return redirect('welcome:welcome')
