@@ -44,8 +44,8 @@ header {
 
 /*トップ*/
 .top-wrapper {
-    padding-top: 150px;
-    padding-bottom: 179px;
+    padding-top: 140px;
+    padding-bottom: 130px;
     background-image: url(../images/kaeruLogin.webp);
     background-color: rgba(250, 235, 215, 0.65);
     background-blend-mode: lighten;
@@ -69,9 +69,14 @@ header {
 .top-text {
     font-family: "筑紫B丸ゴシック";
     text-align: center;
-    padding: 5px 10px;
     margin: 0 auto;
     height: fit-content;
+}
+
+.top-text h2 {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: -5px;
 }
 
 .logo-login {
