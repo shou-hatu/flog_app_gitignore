@@ -28,3 +28,4 @@ class UserUpdateForm(forms.ModelForm):
         # フォームの見た目をカスタマイズする場合は、ここで設定します。
         self.fields['username'].label = 'ユーザー名'
         self.fields['email'].label = 'メールアドレス'
+        self.fields["username"].help_text = ''

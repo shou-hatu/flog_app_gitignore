@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
     {% block css %}<link href="{% static 'css/signup.css' %}" rel="stylesheet">{% endblock %}
-    {% block title %}サインアップ{% endblock %}
+    {% block title %}プロフィール編集{% endblock %}
 {% block content %}
     <div class="top-wrapper">
       <div class="top-container">
         <div class="top-text"><img class="logo-login" src="{% static 'images/KKFrog.png' %}"></div>
         <div class="top-text"><h2>プロフィール編集</h2></div>
-          <form method="post">
+          <form method="post" class="top-address">
             {% csrf_token %}
             {{ user_form.as_p }}
             {{ password_form.as_p }}
