@@ -45,7 +45,7 @@ def user_profile_view(request, username):
         'min_rate_date': min_rate_date,
         'min_rate_confession': min_rate_confession
     }
-    return render(request, 'accounts:user_profile', params)
+    return render(request, 'accounts/user_profile.html', params)
 
 
 def user_edit_view(request, username):
@@ -58,7 +58,7 @@ def user_edit_view(request, username):
             # password_form.save()
             # update_session_auth_hash(request, password_form.user)
             # username=usernameで更新後にユーザーごとのプロフィールページにリダイレクト
-            return redirect('accounts:user_profile', username=username)   
+            return redirect('accounts/user_profile.html', username=username)   
     else:
         user = User.objects.get(username=username)
         user_form = UserUpdateForm(instance=user)
