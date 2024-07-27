@@ -38,39 +38,23 @@
                 <div class="card-container">
                   <div class="card-contents">
                     <div class="card">
-                      <a href="#" style="text-decoration: none;">デートの誘い方編</a>
-                      <p>気になる子ができたからデートに誘いたい！
+                      <a href="{% url 'quiz:question_invite' %}" style="text-decoration: none;">デートの誘い方編</a>
+                      <p>気になる子ができたから
+                        <br>デートに誘いたい！
                         <br>でも、誘い方がわからない！
                         <br>そんな人にきっと参考になる内容
                       </p>
                     </div>
                     <div class="card">
-                      <h3>Card Title 2</h3>
-                      <p>Card description...</p>
+                      <a href="{% url 'quiz:question_date' %}" style="text-decoration: none;">デート中編</a>
+                      <p>デート中には何を気にすれば良いのでしょうか？</p>
                     </div>
                     <div class="card">
-                      <h3>Card Title 3</h3>
-                      <p>Card description...</p>
+                      <a href="{% url 'quiz:question_confession' %}" style="text-decoration: none;">告白編</a>
+                      <p>告白のタイミングは？</p>
                     </div>
                     <div class="card">
-                      <h3>Card Title 4</h3>
-                      <p>Card description...</p>
-                    </div>
-                    <div class="card">
-                      <h3>Card Title 5</h3>
-                      <p>Card description...</p>
-                    </div>
-                    <div class="card">
-                      <h3>Card Title 6</h3>
-                      <p>Card description...</p>
-                    </div>
-                    <div class="card">
-                      <h3>Card Title 7</h3>
-                      <p>Card description...</p>
-                    </div>
-                    <div class="card">
-                      <h3>Card Title 8</h3>
-                      <p>Card description...</p>
+                      <h3>Coming Soon ･･･</h3>
                     </div>
                   </div>
                   <div class="Arrow left">＜</div>
@@ -93,4 +77,5 @@
 {% block script %}
   <script src="{% static 'javascripts/jquery.min.js' %}"></script>
   <script src="{% static 'javascripts/welcome.js' %}"></script>
+  <script src="{% static 'javascripts/home.js' %}"></script>
 {% endblock %}

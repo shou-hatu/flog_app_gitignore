@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-    {% block css %}<link href="userprofile.css" rel="stylesheet" >{% endblock %}
+{% load static %}
+    {% block css %}<link href="{% static 'css/userprofile.css' %}" rel="stylesheet" >{% endblock %}
     {% block title %}ユーザー情報{% endblock %}
 {% block content %}
     <div class="userinfo">
@@ -8,7 +9,7 @@
                 <h3>ユーザー情報</h3>
                 {{username}}
                 <div class="change">
-                    <a href="#" style="text-decoration: none;" class="login-btn">登録情報の変更</a>
+                    <a href="{% url 'accounts:edit' user.username %}" style="text-decoration: none;" class="login-btn">登録情報の変更</a>
                 </div>
             </div>
         </div>
@@ -16,17 +17,39 @@
             <div class="scoreinfo">
                 <div class="rireki">
                     <h3>スコア情報</h3>
-                    <h4>最低蛙化度</h4>
-                    <br>
-                    デートの誘い方編：{{min_rate_invite}}%<br>
-                    デート中編:{{min_rate_date}}%<<br>
-                    告白前のデート編:{{min_rate_confession}}%<br>
-                    <h4>最高蛙化度</h4>
-                    デートの誘い方編：{{max_rate_invite}}%<br>
-                    デート中編:{{max_rate_date}}%<<br>
-                    告白前のデート編:{{max_rate_confession}}%<br>
+                    <div class="min-container">
+                        <label class="label">最低蛙化度</label>
+                        <div class="smallbox">
+                            <span class="text">デートの誘い方編</span><span class="value">{{min_rate_invite}}%</span>
+                        </div>
+                        <div class="smallbox">
+                            <span class="text">デート中編</span><span class="value">{{min_rate_date}}%</span>
+                        </div>
+                        <div class="smallbox">
+                            <span class="text">告白前のデート編</span><span class="value">{{min_rate_confession}}%</span>
+                        </div>
+                    </div>
+                    <div class="max-container">
+                        <label class="label">最高蛙化度</label>
+                        <div class="smallbox">
+                            <span class="text">デートの誘い方編</span><span class="value">{{max_rate_invite}}%</span>
+                        </div>
+                        <div class="smallbox">
+                            <span class="text">デート中編</span><span class="value">{{max_rate_date}}%</span>
+                        </div>
+                        <div class="smallbox">
+                            <span class="text">告白前のデート編</span><span class="value">{{max_rate_confession}}%</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+{% endblock %}
+{% block script %}
+    <script 
+        src="https://code.jquery.com/jquery-3.7.1.js" 
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" 
+        crossorigin="anonymous">
+    </script>
 {% endblock %}

@@ -36,7 +36,7 @@ header {
     line-height: 35px;
     margin: 5px 0;
     padding:0 25px;
-    display: block;
+    display: none;
     transition:all 0.5s;
     border-left: 2px dotted #34b792;
 }
@@ -46,9 +46,9 @@ header {
 
 /*トップ*/
 .top-wrapper {
-    padding-top: 100px;
-    padding-bottom: 10px;
-    background-image: url(../FrogImages/56301.png);
+    padding-top: 70px;
+    padding-bottom: 20px;
+    background-image: url(../images/56301.png);
     background-size: contain;
     text-align: center;
     height: fit-content;
@@ -62,22 +62,54 @@ header {
     background-color: #fdfdf9;
     border: 4px solid #a7a7aa;
     font-family: "筑紫B丸ゴシック";
+    position: relative;
 }
 
-
-.question {
+.question-scenario {
     margin-bottom: 20px;
 }
 
-.question .h2 {
-    font-size: 50px;
+.question-scenario h2 {
+    font-size: 25px;
+    width: 20%;
+    border: 1.5px solid rgb(56, 56, 56);
+    border-radius: 10px;
+    background-color: rgb(252, 233, 236);
+    text-shadow: 2px 2px 0 #FFF, -2px -2px 0 #FFF,
+                 -2px 2px 0 #FFF, 2px -2px 0 #FFF,
+                    0px 2px 0 #FFF,  0px -2px 0 #FFF,
+                      -2px 0 0 #FFF, 2px 0 0 #FFF;
+    position: absolute;
+    left: 20px;
+    top: 5px;
+}
+
+
+.question h2 {
+    display: inline-block;
+    margin: 0 auto;
+    margin-top: -10px;
+    margin-bottom: -25px;
+    padding: 5px 15px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 100;
+    background-color: white;
+    border: 2px dotted black;
+    border-radius: 8px;
+    width: 1200px;
+    height: fit-content;
+    margin-top: 20px;
 }
 
 .illustration img {
+    margin-top: 15px;
+    margin-bottom: -13px;
     max-width: 100%;
-    height: 400px;
+    height: 300px;
     width: 0 auto;
     border: 1px solid #000;
+    
 }
 
 
@@ -97,7 +129,7 @@ header {
 }
 .quiz-wrapper .box label{
     display: flex;
-    height: 100px;
+    height: 70px;
     width: 100%;
     align-items: center;
     border: 2px solid #a7a7aa;
@@ -126,22 +158,22 @@ header {
     border-radius: 50%;
     transition: all 0.4s ease;
 }
-#option-1:checked ~ .option-1 .dot,
-#option-2:checked ~ .option-2 .dot,
-#option-3:checked ~ .option-3 .dot,
-#option-4:checked ~ .option-4 .dot{
+#option-1-1:checked ~ .option-1 .dot,
+#option-1-2:checked ~ .option-2 .dot,
+#option-1-3:checked ~ .option-3 .dot,
+#option-1-4:checked ~ .option-4 .dot{
     border-color: #53b300;
 }
-#option-1:checked ~ .option-1 .dot::before,
-#option-2:checked ~ .option-2 .dot::before,
-#option-3:checked ~ .option-3 .dot::before,
-#option-4:checked ~ .option-4 .dot::before{
+#option-1-1:checked ~ .option-1 .dot::before,
+#option-1-2:checked ~ .option-2 .dot::before,
+#option-1-3:checked ~ .option-3 .dot::before,
+#option-1-4:checked ~ .option-4 .dot::before{
     background: #53b300;
     transform: translate(-50%, -50%) scale(1);
 }
 .quiz-wrapper .box label .text{
     color: #333;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 400;
     width: 95%;
     padding-left: 10px;
@@ -149,17 +181,17 @@ header {
     text-align: left;
     transition: color 0.3s ease;
 }
-#option-1:checked ~ .option-1,
-#option-2:checked ~ .option-2,
-#option-3:checked ~ .option-3,
-#option-4:checked ~ .option-4{
+#option-1-1:checked ~ .option-1,
+#option-1-2:checked ~ .option-2,
+#option-1-3:checked ~ .option-3,
+#option-1-4:checked ~ .option-4{
     background: #e2edd7;
     border-color: #53b300;
 }
-#option-1:checked ~ .option-1 .text,
-#option-2:checked ~ .option-2 .text,
-#option-3:checked ~ .option-3 .text,
-#option-4:checked ~ .option-4 .text{
+#option-1-1:checked ~ .option-1 .text,
+#option-1-2:checked ~ .option-2 .text,
+#option-1-3:checked ~ .option-3 .text,
+#option-1-4:checked ~ .option-4 .text{
     color: #446;
 }
 
@@ -169,262 +201,126 @@ header {
 /*1問目終わり*/
 
 /*2問目*/
-.quiz-wrapper-2 {
-    width: 100%;
-    background-color: #fdfdf9;
-    border-radius: 10px;
-    margin: 10px auto;
-    
-}
-.quiz-wrapper-2 .box-2 {
-    padding: 20px 30px;
-    background: #fdfdf9;
-    border-radius: 10px;
-}
-.quiz-wrapper-2 .box-2 label{
-    display: flex;
-    height: 100px;
-    width: 100%;
-    align-items: center;
-    border: 2px solid #a7a7aa;
-    border-radius: 50px;
-    margin: 10px 0;
-    padding-left: 20px;
-    cursor: default;
-    transition: all 0.3s ease;
-}
-.quiz-wrapper-2 .box-2 label .dot-2{
-    height: 20px;
-    width: 20px;
-    background-color: white;
-    border: 2px solid #a7a7aa;
-    border-radius: 50%;
-    position: relative;
-}
-.box-2 label .dot-2::before{
-    position: absolute;
-    content: "";
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(2);
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    transition: all 0.4s ease;
-}
-#option-5:checked ~ .option-5 .dot-2,
-#option-6:checked ~ .option-6 .dot-2,
-#option-7:checked ~ .option-7 .dot-2,
-#option-8:checked ~ .option-8 .dot-2{
+#option-2-1:checked ~ .option-1 .dot,
+#option-2-2:checked ~ .option-2 .dot,
+#option-2-3:checked ~ .option-3 .dot,
+#option-2-4:checked ~ .option-4 .dot{
     border-color: #53b300;
 }
-#option-5:checked ~ .option-5 .dot-2::before,
-#option-6:checked ~ .option-6 .dot-2::before,
-#option-7:checked ~ .option-7 .dot-2::before,
-#option-8:checked ~ .option-8 .dot-2::before{
+
+#option-2-1:checked ~ .option-1 .dot::before,
+#option-2-2:checked ~ .option-2 .dot::before,
+#option-2-3:checked ~ .option-3 .dot::before,
+#option-2-4:checked ~ .option-4 .dot::before{
     background: #53b300;
     transform: translate(-50%, -50%) scale(1);
 }
-.quiz-wrapper-2 .box-2 label .text-2{
-    color: #333;
-    font-size: 18px;
-    font-weight: 400;
-    width: 95%;
-    padding-left: 10px;
-    padding-bottom: 1px;
-    text-align: left;
-    transition: color 0.3s ease;
-}
-#option-5:checked ~ .option-5,
-#option-6:checked ~ .option-6,
-#option-7:checked ~ .option-7,
-#option-8:checked ~ .option-8{
+
+#option-2-1:checked ~ .option-1,
+#option-2-2:checked ~ .option-2,
+#option-2-3:checked ~ .option-3,
+#option-2-4:checked ~ .option-4{
     background: #e2edd7;
     border-color: #53b300;
 }
-#option-5:checked ~ .option-5 .text-5,
-#option-6:checked ~ .option-6 .text-6,
-#option-7:checked ~ .option-7 .text-7,
-#option-8:checked ~ .option-8 .text-8{
+#option-2-1:checked ~ .option-1 .text,
+#option-2-2:checked ~ .option-2 .text,
+#option-2-3:checked ~ .option-3 .text,
+#option-2-4:checked ~ .option-4 .text{
     color: #446;
 }
 
-.quiz-wrapper-2 .box-2 input[type="radio"]{
-    display: none;
-}
 /*2問目終わり*/
 
 /*3問目*/
-.quiz-wrapper-3 {
-    width: 100%;
-    background-color: #fdfdf9;
-    border-radius: 10px;
-    margin: 10px auto;
-    
-}
-.quiz-wrapper-3 .box-3 {
-    padding: 20px 30px;
-    background: #fdfdf9;
-    border-radius: 10px;
-}
-.quiz-wrapper-3 .box-3 label{
-    display: flex;
-    height: 100px;
-    width: 100%;
-    align-items: center;
-    border: 2px solid #a7a7aa;
-    border-radius: 50px;
-    margin: 10px 0;
-    padding-left: 20px;
-    cursor: default;
-    transition: all 0.3s ease;
-}
-.quiz-wrapper-3 .box-3 label .dot-3{
-    height: 20px;
-    width: 20px;
-    background-color: white;
-    border: 2px solid #a7a7aa;
-    border-radius: 50%;
-    position: relative;
-}
-.box-3 label .dot-3::before{
-    position: absolute;
-    content: "";
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(2);
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    transition: all 0.4s ease;
-}
-#option-9:checked ~ .option-9 .dot-3,
-#option-10:checked ~ .option-10 .dot-3,
-#option-11:checked ~ .option-11 .dot-3,
-#option-12:checked ~ .option-12 .dot-3{
+#option-3-1:checked ~ .option-1 .dot,
+#option-3-2:checked ~ .option-2 .dot,
+#option-3-3:checked ~ .option-3 .dot,
+#option-3-4:checked ~ .option-4 .dot{
     border-color: #53b300;
 }
-#option-9:checked ~ .option-9 .dot-3::before,
-#option-10:checked ~ .option-10 .dot-3::before,
-#option-11:checked ~ .option-11 .dot-3::before,
-#option-12:checked ~ .option-12 .dot-3::before{
+#option-3-1:checked ~ .option-1 .dot::before,
+#option-3-2:checked ~ .option-2 .dot::before,
+#option-3-3:checked ~ .option-3 .dot::before,
+#option-3-4:checked ~ .option-4 .dot::before{
     background: #53b300;
     transform: translate(-50%, -50%) scale(1);
 }
-.quiz-wrapper-3 .box-3 label .text-3{
-    color: #333;
-    font-size: 18px;
-    font-weight: 400;
-    width: 95%;
-    padding-left: 10px;
-    padding-bottom: 1px;
-    text-align: left;
-    transition: color 0.3s ease;
-}
-#option-9:checked ~ .option-9,
-#option-10:checked ~ .option-10,
-#option-11:checked ~ .option-11,
-#option-12:checked ~ .option-12{
+
+#option-3-1:checked ~ .option-1,
+#option-3-2:checked ~ .option-2,
+#option-3-3:checked ~ .option-3,
+#option-3-4:checked ~ .option-4{
     background: #e2edd7;
     border-color: #53b300;
 }
-#option-9:checked ~ .option-9 .text-9,
-#option-10:checked ~ .option-10 .text-10,
-#option-11:checked ~ .option-11 .text-11,
-#option-12:checked ~ .option-12 .text-12{
+#option-3-1:checked ~ .option-1 .text,
+#option-3-2:checked ~ .option-2 .text,
+#option-3-3:checked ~ .option-3 .text,
+#option-3-4:checked ~ .option-4 .text{
     color: #446;
-}
-
-.quiz-wrapper-3 .box-3 input[type="radio"]{
-    display: none;
 }
 /*3問目終わり*/
 
 /*4問目*/
-.quiz-wrapper-4 {
-    width: 100%;
-    background-color: #fdfdf9;
-    border-radius: 10px;
-    margin: 10px auto;
-    
-}
-.quiz-wrapper-4 .box-4 {
-    padding: 20px 30px;
-    background: #fdfdf9;
-    border-radius: 10px;
-}
-.quiz-wrapper-4 .box-4 label{
-    display: flex;
-    height: 100px;
-    width: 100%;
-    align-items: center;
-    border: 2px solid #a7a7aa;
-    border-radius: 50px;
-    margin: 10px 0;
-    padding-left: 20px;
-    cursor: default;
-    transition: all 0.3s ease;
-}
-.quiz-wrapper-4 .box-4 label .dot-4{
-    height: 20px;
-    width: 20px;
-    background-color: white;
-    border: 2px solid #a7a7aa;
-    border-radius: 50%;
-    position: relative;
-}
-.box-4 label .dot-4::before{
-    position: absolute;
-    content: "";
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(2);
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    transition: all 0.4s ease;
-}
-#option-13:checked ~ .option-13 .dot-4,
-#option-14:checked ~ .option-14 .dot-4,
-#option-15:checked ~ .option-15 .dot-4,
-#option-16:checked ~ .option-16 .dot-4{
+#option-4-1:checked ~ .option-1 .dot,
+#option-4-2:checked ~ .option-2 .dot,
+#option-4-3:checked ~ .option-3 .dot,
+#option-4-4:checked ~ .option-4 .dot{
     border-color: #53b300;
 }
-#option-13:checked ~ .option-13 .dot-4::before,
-#option-14:checked ~ .option-14 .dot-4::before,
-#option-15:checked ~ .option-15 .dot-4::before,
-#option-16:checked ~ .option-16 .dot-4::before{
+#option-4-1:checked ~ .option-1 .dot::before,
+#option-4-2:checked ~ .option-2 .dot::before,
+#option-4-3:checked ~ .option-3 .dot::before,
+#option-4-4:checked ~ .option-4 .dot::before{
     background: #53b300;
     transform: translate(-50%, -50%) scale(1);
 }
-.quiz-wrapper-4 .box-4 label .text-4{
-    color: #333;
-    font-size: 18px;
-    font-weight: 400;
-    width: 95%;
-    padding-left: 10px;
-    padding-bottom: 1px;
-    text-align: left;
-    transition: color 0.3s ease;
-}
-#option-13:checked ~ .option-13,
-#option-14:checked ~ .option-14,
-#option-15:checked ~ .option-15,
-#option-16:checked ~ .option-16{
+
+#option-4-1:checked ~ .option-1,
+#option-4-2:checked ~ .option-2,
+#option-4-3:checked ~ .option-3,
+#option-4-4:checked ~ .option-4{
     background: #e2edd7;
     border-color: #53b300;
 }
-#option-13:checked ~ .option-13 .text-13,
-#option-14:checked ~ .option-14 .text-14,
-#option-15:checked ~ .option-15 .text-15,
-#option-16:checked ~ .option-16 .text-16{
+#option-4-1:checked ~ .option-1 .text,
+#option-4-2:checked ~ .option-2 .text,
+#option-4-3:checked ~ .option-3 .text,
+#option-4-4:checked ~ .option-4 .text{
     color: #446;
 }
-
-.quiz-wrapper-4 .box-4 input[type="radio"]{
-    display: none;
-}
 /*4問目終わり*/
+
+/*5問目*/
+#option-5-1:checked ~ .option-1 .dot,
+#option-5-2:checked ~ .option-2 .dot,
+#option-5-3:checked ~ .option-3 .dot,
+#option-5-4:checked ~ .option-4 .dot{
+    border-color: #53b300;
+}
+#option-5-1:checked ~ .option-1 .dot::before,
+#option-5-2:checked ~ .option-2 .dot::before,
+#option-5-3:checked ~ .option-3 .dot::before,
+#option-5-4:checked ~ .option-4 .dot::before{
+    background: #53b300;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#option-5-1:checked ~ .option-1,
+#option-5-2:checked ~ .option-2,
+#option-5-3:checked ~ .option-3,
+#option-5-4:checked ~ .option-4{
+    background: #e2edd7;
+    border-color: #53b300;
+}
+#option-5-1:checked ~ .option-1 .text,
+#option-5-2:checked ~ .option-2 .text,
+#option-5-3:checked ~ .option-3 .text,
+#option-5-4:checked ~ .option-4 .text{
+    color: #446;
+}
+/*5問目終わり*/
 
 /*ここまで問題選択用CSS*/
 
@@ -436,7 +332,8 @@ header {
 .cq-btn {
     margin: 0 auto;
     margin-top: 20px;
-    display: block;
+    margin-bottom: 10px;
+    display: flex;
     text-align: center;
     padding: 10px;
     width: 120px;
@@ -455,26 +352,11 @@ header {
     box-shadow: 2px 2px 5px #34b792;
 }
 
-.cq-btn{
-    margin-bottom: 10px;
-}
-
-.cq-btn-1{
-    display: flex;
-    padding-bottom: 10px;
-}
-
 .cq-btn-first{
     display: flex;
     padding-bottom: 10px;
-    margin-left: 50%;
 }
 
-.cq-btn-last{
-    display: flex;
-    padding-bottom: 10px;
-    margin-right: 50%;
-}
 
 /*ここまで問題表示管理*/
 
