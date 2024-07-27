@@ -12,8 +12,7 @@ urlpatterns = [
     ),  # 第三引数のnameはパターンネームといい、signup.htmlでビューを呼び出すために記述される
     path("login/", auth_views.LoginView.as_view(
         template_name='accounts/login.html'), name="login"),
-    # auth_views.UserLoginViewでviews.pyの UserLoginView を呼び出している
-    path("logout/", auth_views.LogoutView.as_view(), name="logout"),
+    path("logout/",views.logout_view,name="logout"),
     path('profile/<str:username>/', views.user_profile_view,
          name='user_profile'),
     path('edit/', views.user_edit_view,
