@@ -4,6 +4,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const nextButtons = document.querySelectorAll('.next-btn');
     const prevButtons = document.querySelectorAll('.before-btn');
     const submit = document.querySelectorAll(".submit-btn");
+    
+    // ランダムにシャッフルする関数
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+    
+    window.onload = function() {
+        // すべてのクイズの選択肢を取得
+        const boxes = document.querySelectorAll('.box');
+    
+        // 各クイズの選択肢をシャッフル
+        boxes.forEach(box => {
+            const options = Array.from(box.querySelectorAll('.option-label'));
+            const shuffledOptions = shuffle(options);
+            shuffledOptions.forEach(option => box.appendChild(option));
+        });
+    };
+    //シャッフルここまで
 
     function showQuestion(index) {
         questions.forEach((question, i) => {
