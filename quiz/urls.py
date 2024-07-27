@@ -5,8 +5,10 @@ from . import views
 app_name = "quiz"
 
 urlpatterns = [
-    # path('index/', views.IndexView.as_view(), name='index'),
-    path('question/', views.question_view, name='question'),
-    path('result/', views.result_view, name='result'),
-    path('home/', views.HomeView.as_view(), name='home'),
+    path('question_invite/', views.question_invite_view, name='question_invite'),
+    path('question_date/', views.question_date_view, name='question_date'),
+    path('question_confession/', views.question_confession_view, name='question_confession'),
+    path('result_invite/', views.result_invite_view, name='result_invite'),
+    path('result_date/', views.result_date_view, name='result_date'),
+    path('result_confession/', views.result_confession_view, name='result_confession'),
 ]

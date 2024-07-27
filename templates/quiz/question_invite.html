@@ -1,0 +1,53 @@
+{% extends "base.html"}
+{% load static %}
+    {% block title %}Quiz{% endblock %}
+    {% block css %}<link href="{% static 'css/quiz.css' %}" rel="stylesheet">{% endblock %}
+{% block content %}
+<form action="{% url 'quiz:result_invite' %}" method='post' >
+<div class="top-wrapper">
+  <div class="container" id="quiz-cotainer">
+    {% for q in questions %}
+    <div class="quiz">
+      <div class="question">
+          <h2>{{q.question}}</h2>
+      </div>
+      <div class="illustration" >
+          <img src="../FrogImages/kaeruhome.png">
+      </div>
+      <div class="quiz-wrapper">
+        <div class="box">
+            <input type="radio" name="{{q.question}}" value="{{q.op1}}" id="option-1">
+            <input type="radio" name="{{q.question}}" value="{{q.op2}}" id="option-2">
+            <input type="radio" name="{{q.question}}" value="{{q.op3}}" id="option-3">
+            <input type="radio" name="{{q.question}}" value="{{q.op4}}" id="option-4">
+            <label for="option-1" class="option-1 option-label">
+                <div class="dot"></div>
+                <div class="text">{{q.op1}}</div>
+            </label>
+            <label for="option-2" class="option-2 option-label">
+                <div class="dot"></div>
+                <div class="text">{{q.op2}}</div>
+            </label>
+            <label for="option-3" class="option-3 option-label">
+                <div class="dot"></div>
+                <div class="text">{{q.op3}}</div>
+            </label>
+            <label for="option-4" class="option-4 option-label">
+                <div class="dot"></div>
+                <div class="text">{{q.op4}}</div>
+            </label>
+        </div>
+      </div>
+      <div class="cq-btn-first">
+        <button class="next-btn cq-btn">次の問題へ</button>
+      </div>
+      
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}
+{% block script %}
+  <script src="{% static 'javascripts/jquery.min.js' %}"></script>
+  <script src="{% static 'javascripts/quiz.js' %}"></script>
+{% endblock %}

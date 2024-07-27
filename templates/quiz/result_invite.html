@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}<link href="{% static 'css/result.css' %}" rel="stylesheet" >{% endblock %}
+{% block title %}結果発表{% endblock %}
+{% block content %}
+<div class="top">
+    <div class="container">
+        <div class="result">
+            <h3>\結果発表/</h3>
+            <h4>&emsp;&emsp;&emsp;&emsp;蛙化度:<span class="char-1">&emsp;&emsp;{{percent}}</span>%</h4>
+            {% if percent >= 90  %}
+            <h3>
+                4ね
+            </h3>
+            {% elif percent >= 60 %}
+            <h4>
+                まあまあだね
+            </h4>
+            {% elif percent >= 40 %}
+            <h4>
+                よくやった
+            </h4>
+            {% else %}
+            <h4>
+                すばらしい！！
+            </h4>
+            {% endif %}
+            {% for point in situation1_list %}
+            <p class="card-text">第{{forloop.counter}}問目: {{point}}</p>
+            {%endfor%}
+            
+        </div>
+        <div class="btn">
+            <a href="{% url 'welcome:welcome'%}" style="text-decoration: none;">ホーム画面に戻る</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

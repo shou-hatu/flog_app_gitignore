@@ -2,15 +2,36 @@ from django.db import models
 from django.conf import settings
 
 
-class Quiz(models.Model):
+class Quiz_invite(models.Model):
     """クイズの問題を表すモデル"""
     question = models.CharField(max_length=200, null=True)
     op1 = models.CharField(max_length=200, null=True)
     op2 = models.CharField(max_length=200, null=True)
     op3 = models.CharField(max_length=200, null=True)
     op4 = models.CharField(max_length=200, null=True)
-    ans = models.CharField(max_length=200, null=True)
+ 
+    def __str__(self):
+        return self.question
 
+class Quiz_date(models.Model):
+    """クイズの問題を表すモデル"""
+    question = models.CharField(max_length=200, null=True)
+    op1 = models.CharField(max_length=200, null=True)
+    op2 = models.CharField(max_length=200, null=True)
+    op3 = models.CharField(max_length=200, null=True)
+    op4 = models.CharField(max_length=200, null=True)
+ 
+    def __str__(self):
+        return self.question
+
+class Quiz_confession(models.Model):
+    """クイズの問題を表すモデル"""
+    question = models.CharField(max_length=200, null=True)
+    op1 = models.CharField(max_length=200, null=True)
+    op2 = models.CharField(max_length=200, null=True)
+    op3 = models.CharField(max_length=200, null=True)
+    op4 = models.CharField(max_length=200, null=True)
+ 
     def __str__(self):
         return self.question
 
