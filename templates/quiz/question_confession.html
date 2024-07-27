@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
-    {% block title %}Quiz{% endblock %}
-    {% block css %}<link href="{% static 'css/quiz.css' %}" rel="stylesheet">{% endblock %}
+{% block title %}Quiz{% endblock %}
+{% block css %}<link href="{% static 'css/quiz.css' %}" rel="stylesheet">{% endblock %}
 {% block content %}
 <form action="{% url 'quiz:result_confession' %}" method='post' >
 <div class="top-wrapper">
@@ -9,11 +9,14 @@
     {% csrf_token %}
     {% for q in questions %}
     <div class="quiz" id="quiz-{{ forloop.counter }}" style="display: {% if forloop.first %} block {% else %}none{% endif %};">
-      <div class="question">
-          <h2>{{q.question}}</h2>
+      <div class="question-scenario">
+        <h2>デートの誘い方編</h2>
       </div>
       <div class="illustration" >
           <img src="{% static 'images/kaeruhome.png' %}">
+      </div>
+      <div class="question">
+        <h2>{{q.question}}</h2>
       </div>
       <div class="quiz-wrapper">
         <div class="box">
@@ -52,6 +55,9 @@
     </div>
     {% endfor %}
     </form>
+  </div>
+</div>
+
 {% endblock %}
 {% block script %}
   <script src="{% static 'javascripts/jquery.min.js' %}"></script>
