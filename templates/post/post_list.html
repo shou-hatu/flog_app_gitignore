@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>投稿一覧</title>
+</head>
+<body>
+    <h1>投稿一覧</h1>
+    {% for post in posts %}
+        <p>{{ post.user.username }}: {{ post.content }}</p>
+        <p>いいね数: {{ post.like_count }}</p>
+        <a href="{% url 'like_post' post.id %}">いいね</a>
+    {% endfor %}
+</body>
+</html>
