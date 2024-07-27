@@ -8,7 +8,7 @@ app_name = "accounts"
 
 urlpatterns = [
     path(
-        "signup/", views.SignupView.as_view(), name="signup"
+        "signup/", views.signup, name="signup"
     ),  # 第三引数のnameはパターンネームといい、signup.htmlでビューを呼び出すために記述される
     path("login/", auth_views.LoginView.as_view(
         template_name='accounts/login.html'), name="login"),

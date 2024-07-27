@@ -5,25 +5,24 @@ from django.views.generic import CreateView
 from quiz.models import Player_result
 from django.shortcuts import render, redirect
 from django.db.models import Max, Min
-
-
 from .forms import SignupForm, UserUpdateForm
 
 User = get_user_model()
 
 
-class SignupView(CreateView):
-    form_class = SignupForm
-    template_name = "accounts/signup.html"
-    success_url = reverse_lazy(settings.LOGIN_REDIRECT_URL)  # 遷移先の指定
-
-    def form_valid(self, form):  # form_valid関数のオーバーライド
-        response = super().form_valid(form)
-        username = form.cleaned_data["username"]
-        password1 = form.cleaned_data["password1"]  # passwordはキーに存在しないためpassword1にする
-        user = authenticate(self.request, username=username, password=password1)
-        login(self.request, user)
-        return response
+def signup(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')  # Use password1 for password field
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect(reverse_lazy(settings.LOGIN_REDIRECT_URL))  # Redirect to the success URL
+    else:
+        form = SignupForm()
+    return render(request, 'accounts/signup.html', {'form': form})
 
 
 def user_profile_view(request, username):
