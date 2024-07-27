@@ -9,7 +9,7 @@
                 <h3>ユーザー情報</h3>
                 {{username}}
                 <div class="change">
-                    <a href="{% url 'accounts:edit' %}" style="text-decoration: none;" class="login-btn">登録情報の変更</a>
+                    <a href="{% url 'accounts:edit' user.username %}" style="text-decoration: none;" class="login-btn">登録情報の変更</a>
                 </div>
             </div>
         </div>

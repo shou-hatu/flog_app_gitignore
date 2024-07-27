@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.contrib.auth import authenticate, get_user_model, login,logout
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
 from quiz.models import Player_result
 from django.shortcuts import render, redirect
 from django.db.models import Max, Min
@@ -26,7 +25,8 @@ def signup(request):
 
 
 def user_profile_view(request, username):
-    user = User.objects.get(username=username)  # usernameフィールドと受け取った入力値が等しくなるような行を抽出
+    user = User.objects.get(username=username)  
+    # usernameフィールドと受け取った入力値が等しくなるような行を抽出
     player_result = Player_result.objects.filter(user=user)
     max_rate_invite = player_result.aggregate(Max('flog_rate_invite'))['flog_rate_invite__max']
     max_rate_date = player_result.aggregate(Max('flog_rate_date'))['flog_rate_date__max']
@@ -45,27 +45,31 @@ def user_profile_view(request, username):
         'min_rate_date': min_rate_date,
         'min_rate_confession': min_rate_confession
     }
-    return render(request, 'accounts/user_profile.html', params)
+    return render(request, 'accounts:user_profile', params)
 
 
-def user_edit_view(request):
+def user_edit_view(request, username):
     if request.method == 'POST':
-        user_form = UserUpdateForm(request.POST, instance=request.user)
+        user = User.objects.get(username=username)
+        user_form = UserUpdateForm(request.POST, instance=user)
         # password_form = PasswordChangeForm(request.user, request.POST)
         if user_form.is_valid():
             user_form.save()
             # password_form.save()
             # update_session_auth_hash(request, password_form.user)
-            return redirect('accounts/user_profile')  # 更新後にプロフィールページにリダイレクト
+            # username=usernameで更新後にユーザーごとのプロフィールページにリダイレクト
+            return redirect('accounts:user_profile', username=username)   
     else:
-        user_form = UserUpdateForm(instance=request.user)
+        user = User.objects.get(username=username)
+        user_form = UserUpdateForm(instance=user)
         # password_form = PasswordChangeForm(request.user)
 
-    context = {
+    params = {
         'user_form': user_form,
         # 'password_form': password_form,
     }
-    return render(request, 'accounts/user_profile.html', context)
+    return render(request, 'accounts/edit.html', params)
+
 
 def logout_view(request):
     logout(request)
