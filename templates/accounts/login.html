@@ -8,18 +8,20 @@
       <div class="top-container">
         <div class="top-text"><img class="logo-login" src="{% static 'images/KKFrog.png' %}"></div>
         <div class="top-text"><h2>ログイン</h2></div>
-          <div class="top-address">
           <form method="post">
-            <!--{{ form.as_p }}--> <!--formにはSignupFormのインスタンスが入っている。as_pとすることで、各input要素(クラス内に定義した要素)がpタグで囲まれた状態で表示される。-->
-            <p>{{ form.username.label }} {{ form.username }}</p>
-            <p>{{ form.password.label }} {{ form.password }}</p>
+            <table>
+              {{ form.as_table }}
+            </table>
+            <!--formにはSignupFormのインスタンスが入っている。as_pとすることで、各input要素(クラス内に定義した要素)がpタグで囲まれた状態で表示される。-->
+            <!--<p>{{ form.username.label }} {{ form.username }}</p>
+            <p>{{ form.password.label }} {{ form.password }}</p>-->
             {% csrf_token %}
             <button type="submit" class="login-btn">ユーザー登録</button>
           </form>
-        </div>
-        <div class="no-account">
-          <label>アカウントを持っていない</label>
-          <a href="{% url 'accounts:signup' %}">新規登録</a>
+          <div class="no-account">
+            <label>アカウントを持っていない</label>
+            <a href="{% url 'accounts:signup' %}">新規登録</a>
+          </div>
         </div>
       </div>
     </div>
