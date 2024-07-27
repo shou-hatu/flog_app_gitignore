@@ -122,12 +122,18 @@
     height: 400px;
     background-color: white;
     border:2px solid #a7a7aa;
-    border-radius: 5px;
+    border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 20px 10px 20px 40px;
     padding: 20px;
+    padding-top: 2%;
     text-align: center;
     font-family: "筑紫B丸ゴシック";
+}
+
+.card a {
+    color: darkseagreen;
+    font-size: 30px;
 }
 
 .Arrow {
