@@ -176,12 +176,12 @@ header {
     margin: 10px auto;
     
 }
-.quiz-wrapper-2 .box-2 {
+.quiz-wrapper-2 .box {
     padding: 20px 30px;
     background: #fdfdf9;
     border-radius: 10px;
 }
-.quiz-wrapper-2 .box-2 label{
+.quiz-wrapper-2 .box label{
     display: flex;
     height: 100px;
     width: 100%;
@@ -193,7 +193,7 @@ header {
     cursor: default;
     transition: all 0.3s ease;
 }
-.quiz-wrapper-2 .box-2 label .dot-2{
+.quiz-wrapper-2 .box label .dot-2{
     height: 20px;
     width: 20px;
     background-color: white;
@@ -201,7 +201,7 @@ header {
     border-radius: 50%;
     position: relative;
 }
-.box-2 label .dot-2::before{
+.box label .dot-2::before{
     position: absolute;
     content: "";
     top: 50%;
@@ -225,7 +225,7 @@ header {
     background: #53b300;
     transform: translate(-50%, -50%) scale(1);
 }
-.quiz-wrapper-2 .box-2 label .text-2{
+.quiz-wrapper-2 .box label .text-2{
     color: #333;
     font-size: 18px;
     font-weight: 400;
@@ -249,7 +249,7 @@ header {
     color: #446;
 }
 
-.quiz-wrapper-2 .box-2 input[type="radio"]{
+.quiz-wrapper-2 .box input[type="radio"]{
     display: none;
 }
 /*2問目終わり*/
@@ -262,12 +262,12 @@ header {
     margin: 10px auto;
     
 }
-.quiz-wrapper-3 .box-3 {
+.quiz-wrapper-3 .box {
     padding: 20px 30px;
     background: #fdfdf9;
     border-radius: 10px;
 }
-.quiz-wrapper-3 .box-3 label{
+.quiz-wrapper-3 .box label{
     display: flex;
     height: 100px;
     width: 100%;
@@ -279,7 +279,7 @@ header {
     cursor: default;
     transition: all 0.3s ease;
 }
-.quiz-wrapper-3 .box-3 label .dot-3{
+.quiz-wrapper-3 .box label .dot-3{
     height: 20px;
     width: 20px;
     background-color: white;
@@ -287,7 +287,7 @@ header {
     border-radius: 50%;
     position: relative;
 }
-.box-3 label .dot-3::before{
+.box label .dot-3::before{
     position: absolute;
     content: "";
     top: 50%;
@@ -311,7 +311,7 @@ header {
     background: #53b300;
     transform: translate(-50%, -50%) scale(1);
 }
-.quiz-wrapper-3 .box-3 label .text-3{
+.quiz-wrapper-3 .box label .text-3{
     color: #333;
     font-size: 18px;
     font-weight: 400;
@@ -335,7 +335,7 @@ header {
     color: #446;
 }
 
-.quiz-wrapper-3 .box-3 input[type="radio"]{
+.quiz-wrapper-3 .box input[type="radio"]{
     display: none;
 }
 /*3問目終わり*/
@@ -348,12 +348,12 @@ header {
     margin: 10px auto;
     
 }
-.quiz-wrapper-4 .box-4 {
+.quiz-wrapper-4 .box {
     padding: 20px 30px;
     background: #fdfdf9;
     border-radius: 10px;
 }
-.quiz-wrapper-4 .box-4 label{
+.quiz-wrapper-4 .box label{
     display: flex;
     height: 100px;
     width: 100%;
@@ -365,7 +365,7 @@ header {
     cursor: default;
     transition: all 0.3s ease;
 }
-.quiz-wrapper-4 .box-4 label .dot-4{
+.quiz-wrapper-4 .box label .dot-4{
     height: 20px;
     width: 20px;
     background-color: white;
@@ -373,7 +373,7 @@ header {
     border-radius: 50%;
     position: relative;
 }
-.box-4 label .dot-4::before{
+.box label .dot-4::before{
     position: absolute;
     content: "";
     top: 50%;
@@ -397,7 +397,7 @@ header {
     background: #53b300;
     transform: translate(-50%, -50%) scale(1);
 }
-.quiz-wrapper-4 .box-4 label .text-4{
+.quiz-wrapper-4 .box label .text-4{
     color: #333;
     font-size: 18px;
     font-weight: 400;
@@ -421,7 +421,7 @@ header {
     color: #446;
 }
 
-.quiz-wrapper-4 .box-4 input[type="radio"]{
+.quiz-wrapper-4 .box input[type="radio"]{
     display: none;
 }
 /*4問目終わり*/
