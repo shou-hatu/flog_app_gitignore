@@ -10,10 +10,12 @@
     {% for q in questions %}
     <div class="quiz" id="quiz-{{ forloop.counter }}" style="display: {% if forloop.first %} block {% else %}none{% endif %};">
       <div class="question-scenario">
-        <h2>デートの誘い方編</h2>
+        <h2>告白編</h2>
       </div>
       <div class="illustration" >
-          <img src="{% static 'images/kaeruhome.png' %}">
+        {% with image_counter=forloop.counter|stringformat:"d" %}
+        <img src="{% static 'images/q-confession-'|add:image_counter %}.png">
+        {% endwith %}
       </div>
       <div class="question">
         <h2>{{q.question}}</h2>
