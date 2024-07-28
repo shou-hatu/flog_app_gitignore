@@ -136,6 +136,22 @@
     font-size: 30px;
 }
 
+.card-photo{
+    width: 80%;
+    height: fit-content;
+    margin: 0 5%;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.card-photo1{
+    width: 70%;
+    height: fit-content;
+    margin: 0 5%;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
 .Arrow {
     position: absolute;
     top: 50%;
