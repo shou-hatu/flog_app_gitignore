@@ -5,7 +5,8 @@ from quiz.models import Player_result
 from django.shortcuts import render, redirect
 from django.db.models import Max, Min
 from .forms import SignupForm, UserUpdateForm
-
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import UpdateView
 User = get_user_model()
 
 
@@ -55,10 +56,13 @@ def user_edit_view(request, username):
         # password_form = PasswordChangeForm(request.user, request.POST)
         if user_form.is_valid():
             user_form.save()
+            username = user_form.cleaned_data['username']
+            url = reverse_lazy('accounts:user_profile',
+                               kwargs={'username': username})
             # password_form.save()
             # update_session_auth_hash(request, password_form.user)
             # username=usernameで更新後にユーザーごとのプロフィールページにリダイレクト
-            return redirect('accounts/user_profile.html', username=username)   
+            return redirect(url, username=username)
     else:
         user = User.objects.get(username=username)
         user_form = UserUpdateForm(instance=user)
@@ -70,6 +74,15 @@ def user_edit_view(request, username):
     }
     return render(request, 'accounts/edit.html', params)
 
+
+class ProfileEditView(LoginRequiredMixin, UpdateView): # 追加
+    template_name = 'accounts/edit.html'
+    model = User
+    form_class = UserUpdateForm
+    success_url = '/accounts/edit/'
+    
+    def get_object(self):
+        return self.request.user
 
 def logout_view(request):
     logout(request)
