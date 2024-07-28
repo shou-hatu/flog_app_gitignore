@@ -170,21 +170,61 @@ header {
 .quiz-content {
     display: none;
     margin-top: 10px;
-    padding: 10px;
+    padding: 20px;
     background-color: #f9f9f9;
-    border: 1.5px solid #ddd;
-    border-radius: 5px;
+    border: 2px solid #313131;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 97%;
     text-align: left;
 }
 
 .quiz-content p {
+    padding-left: 50px;
+    padding-right: 50px;
     margin: 10px 0;
-    
+}
+
+.quiz-content span {
+    display: block;
+    font-weight: 500;
+    font-size: large;
+    margin-left: 20px;
+}
+
+.char-10 {
+    display: block;
+    margin-top: -25px;
+    padding-left: 20%;
+}
+
+.char-11 {
+    display: block;
+    margin-top: -25px;
+    padding-left: 30%;
+}
+
+.great {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 10px 0;
+}
+
+.great span {
+    font-size: 30px;
+}
+
+.great .char-10 {
+    margin-top: -45px;
+}
+
+.great .char-11 {
+    margin-top: -45px;
 }
 
 .explain {
+    margin-top: 20px;
     border-top:2px solid #a7a7aa;
+    line-height: 35px;
 }
 
