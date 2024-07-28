@@ -5,7 +5,7 @@ from django.views.generic.edit import CreateView
 from .models import Post, Like
 from django.http import JsonResponse
 
-class HomeView(LoginRequiredMixin, ListView):
+class PostView(LoginRequiredMixin, ListView):
     template_name = "Posts/home.html"
     # Postをモデルに指定
     model = Post
