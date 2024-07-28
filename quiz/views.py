@@ -35,7 +35,7 @@ def result_invite_view(request):
         situaton1_score = 0
         correct = 0
         answered_num_invite = 0
-        situation1_list=[]
+        situation1_list = []
         player = request.user
         for q in questions:
             answered_num_invite += 1
@@ -54,6 +54,10 @@ def result_invite_view(request):
                 situaton1_score += 3
                 situation1_list.append("super frog")
         percent = situaton1_score/(answered_num_invite*3) * 100
+        if percent == 0:
+            percent = 1
+        else:
+            pass
         # Player_resultのデータを変数に格納
         player_result_invite = Player_result.objects.create(user=player, flog_rate_invite=percent)
         print(Player_result.objects.all().values())
@@ -100,6 +104,10 @@ def result_date_view(request):
                 situaton2_score += 3
                 situation2_list.append("super frog")
         percent = situaton2_score/(answered_num_date*3) * 100
+        if percent == 0:
+            percent = 1
+        else:
+            pass
         # Player_resultのデータを変数に格納
         player_result_date = Player_result.objects.create(user=player, flog_rate_date=percent)
         print(Player_result.objects.all().values())
@@ -146,6 +154,10 @@ def result_confession_view(request):
                 situaton3_score += 3
                 situation3_list.append("super frog")
         percent = situaton3_score/(answered_num_confession*3) * 100
+        if percent == 0:
+            percent = 1
+        else:
+            pass
         # Player_resultのデータを変数に格納
         player_result_confession = Player_result.objects.create(user=player, flog_rate_confession=percent)
         print(Player_result.objects.all().values())
@@ -169,4 +181,3 @@ def result_confession_view(request):
 
 class HomeView(TemplateView):
     template_name = 'quiz/home.html'
-
