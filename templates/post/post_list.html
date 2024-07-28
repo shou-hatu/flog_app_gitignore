@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h1>Homeです</h1>
+<!-- object_list は Article.objects.all() と同じ結果となる -->
+<!--Tweet.objects.all():Tweetの中身全て取り出す-->
+<!--user、ツイート内容、日時の順に表示する-->
+{%for tweet in object_list%}
+<!--パスでクエリパラメータ(<int:pk>とか)を指定している場合にはurlタグの遷移先の後ろに-->
+<a href="{% url 'accounts:user_profile' tweet.user %}">{{tweet.user}}</a>
+<a href="{% url 'tweets:detail'  tweet.pk %}">{{tweet.content}}</a>
+{{tweet.created_at}}
+{%endfor%}
+{% endblock %}
