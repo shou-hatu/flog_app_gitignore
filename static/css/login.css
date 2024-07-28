@@ -44,8 +44,8 @@ header {
 
 /*トップ*/
 .top-wrapper {
-    padding-top: 150px;
-    padding-bottom: 179px;
+    padding-top: 140px;
+    padding-bottom: 130px;
     background-image: url(../images/kaeruLogin.webp);
     background-color: rgba(250, 235, 215, 0.65);
     background-blend-mode: lighten;
@@ -68,10 +68,15 @@ header {
 
 .top-text {
     font-family: "筑紫B丸ゴシック";
-    font-size: 20px;
-    padding: 5px 10px;
+    text-align: center;
     margin: 0 auto;
     height: fit-content;
+}
+
+.top-text h2 {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: -5px;
 }
 
 .logo-login {
@@ -89,7 +94,7 @@ header {
     width: 410px;
 }
 
-.top-address .text {
+.top-address .label {
     font-family: "筑紫B丸ゴシック";
     text-align: left;
     padding-top: 5px;
@@ -109,38 +114,6 @@ header {
 }
 
 .top-address input:focus {
-    outline: 0;
-    border: 1px solid #99dde7;
-}
-
-.top-password {
-    margin: 0 auto;
-    padding-top: 5px;
-    padding-bottom: 10px;
-    height: fit-content;
-    width: 410px;
-}
-
-.top-password .text {
-    font-family: "筑紫B丸ゴシック";
-    text-align: left;
-    padding-top: 5px;
-    padding-left: 5px;
-    font-size: 13px;
-    height: fit-content;
-    width: 100%;
-}
-
-.top-password input {
-    border-radius: 10px;
-    border: 1px solid #a7a7aa;
-    width: 400px;
-    height: 35px;
-    padding-left: 5px;
-    font-size: 15px;
-}
-
-.top-password input:focus {
     outline: 0;
     border: 1px solid #99dde7;
 }

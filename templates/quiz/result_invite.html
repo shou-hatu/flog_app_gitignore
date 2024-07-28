@@ -1,14 +1,40 @@
-{% extends "base.html" %}
-{% block title %}ようこそ{% endblock %}
-{% load static %}{% block css %}<link href="{% static 'css/result.css' %}" rel="stylesheet">{% endblock %}
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}<link href="{% static 'css/result.css' %}" rel="stylesheet" >{% endblock %}
+{% block title %}結果発表{% endblock %}
 {% block content %}
 <div class="top">
+  <div class="top-wrapper">
     <div class="result-container">
         <div class="result">
             <h3>\結果発表/</h3>
             <h4>&emsp;&emsp;&emsp;&emsp;蛙化度:<span class="char-1">&emsp;&emsp;{{percent}}</span>%</h4>
-            <h4>解いた問題の数: &emsp;&emsp;{{answered_num}}</h4>
-            <h4>各問題の蛙化度:&emsp;①〜％、②〜％、③〜％、④〜％</h4>
+            {% if percent >= 90  %}
+            <h4>
+              カエルになっちゃう！？
+              <img src="../../static/images/Level3.png">
+            </h4>
+            {% elif percent >= 60 %}
+            <h4>
+              まあまあだね
+              <img src="../../static/images/Level2.png">
+            </h4>
+            {% elif percent >= 40 %}
+            <h4>
+              よくやった
+              <img src="../../static/images/Level1.png">
+            </h4>
+            {% else %}
+            <h4>
+              すばらしい！！
+              <img src="../../static/images/Level0.png">
+            </h4>
+            {% endif %}
+            {% for point in situation2_list %}
+            <div class="card-text">
+              第{{forloop.counter}}問目: {{point}}
+            </div>
+            {%endfor%} 
         </div>
         <div class="quiz-container">
             <h3>\解説/</h3>
@@ -18,10 +44,10 @@
                     <button class="quiz-toggle-button">解説を表示 ⬇️</button>
                 </div>
                 <div class="quiz-content">
-                    <p><span>Great</span>:クイズの解説文1がここに表示されます。</p>
-                    <p><span>Good</span>:クイズの解説文1がここに表示されます。</p>
-                    <p><span>Frog</span>:クイズの解説文1がここに表示されます。</p>
-                    <p><spna>Superfrog</spna>:クイズの解説文1がここに表示されます。</p>
+                    <p><span>Great</span>:{{q.op1}}</p>
+                    <p><span>Good</span>:{{q.op2}}</p>
+                    <p><span>Frog</span>:{{q.op3}}</p>
+                    <p><spna>Superfrog</spna>:{{q.op4}}</p>
                     <div class="explain">
                         <p><spna>全体の解説</p>
                     </div>
@@ -76,11 +102,15 @@
                 </div>
             </div>
         </div>
+
         <div class="btn">
             <a href="{% url 'welcome:welcome'%}" style="text-decoration: none;">ホーム画面に戻る</a>
         </div>
     </div>
+  </div> 
 </div>
+{% endblock %}
 {% block script %}
-  <script src="result.js"></script>
-  {% endblock %}
+  <script src="{% static 'javascripts/jquery.min.js' %}"></script>
+  <script src="{% static 'javascripts/result.js' %}"></script>
+{% endblock %}

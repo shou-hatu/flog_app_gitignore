@@ -1,68 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>signup</title>
-    <link href="signup.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/earlyaccess/nikukyu.css" rel="stylesheet">
-  </head>
-<body>
-    <header id="login">
-        <div class="header-inner">
-            <div class="header-left">
-                <img class="logo" src="FrogImages/KKFrog.png">
-            </div>
-            <div class="header-right">
-                <a href="{% url 'welcome:welcome' %}" style="text-decoration: none;">ホーム</a>
-                <a href="#" style="text-decoration: none;">投稿</a>
-                <a href="{% url 'accounts:signup' %}" style="text-decoration: none;">新規登録</a>
-                <a href="{% url 'accounts:login' %}" style="text-decoration: none;">ログイン</a>
-            </div>
-        </div>
-    </header>
+{% extends "base.html" %}
+{% load static %}
+    {% block css %}<link href="{% static 'css/signup.css' %}" rel="stylesheet">{% endblock %}
+    {% block title %}サインアップ{% endblock %}
+{% block content %}
     <div class="top-wrapper">
+      <div class="top-container">
+        <div class="top-text"><img class="logo-login" src="{% static 'images/KKFrog.png' %}"></div>
         <div class="top-text"><h2>新規登録</h2></div>
-        <form method="post">
-          {{ form.as_p }} <!--formにはSignupFormのインスタンスが入っている。as_pとすることで、各input要素(クラス内に定義した要素)がpタグで囲まれた状態で表示される。-->>
-          {% csrf_token %}
-          <button type="submit">ユーザー登録</button>
-      </form>
-        <div class="no-account">
-          
-          <label>アカウントを持っている</label>
-          <a href="{% url 'accounts:login' %}">ログイン</a>
-        </div>
+          <form method="post" action="{% url 'accounts:signup' %}" class="top-address">
+            {{ form.as_p }} <!--formにはSignupFormのインスタンスが入っている。as_pとすることで、各input要素(クラス内に定義した要素)がpタグで囲まれた状態で表示される。-->
+            <!--<p>{{ form.username.label }} {{ form.username }}</p>
+            <p>{{ form.email.label }} {{ form.email }}</p>
+            <p>{{ form.password1.label }} {{ form.password1 }}</p>
+            <p>{{ form.password2.label }} {{ form.password2 }}</p>-->
+            {% csrf_token %}
+            <button type="submit" class="login-btn">ユーザー登録</button>
+          </form>
+          <div class="no-account">
+            <label>アカウントを持っている</label>
+            <a href="{% url 'accounts:login' %}">ログイン</a>
+          </div>
+      </div>
     </div>
-
-
-    <footer>
-        <div class="footer-wrapper">
-            <ul class="footer-contents">
-              <li>
-                <a href="!" style="text-decoration: none;">トップ</a>
-              </li>
-              <li>
-                <a href="!" style="text-decoration: none;">ヘルプ</a>
-              </li>
-              <li>
-                <a href="!" style="text-decoration: none;">運営</a>
-              </li>
-              <li>
-                <a href="!" style="text-decoration: none;">利用規約</a>
-              </li>
-              <li>
-                <a href="!" style="text-decoration: none;">プライバシーポリシー</a>
-              </li>
-            </ul>
-            <p>Copyright（C）Kenkashi Hakkason</p>
-        </div>
-    </footer>
-
+{% endblock %}
+{% block script %}
     <script 
         src="https://code.jquery.com/jquery-3.7.1.js" 
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" 
         crossorigin="anonymous">
     </script>
-    <script src="home.js"></script>
-</body>
-</html>
+{% endblock %}
