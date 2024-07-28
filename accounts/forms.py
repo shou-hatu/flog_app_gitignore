@@ -17,6 +17,10 @@ class SignupForm(UserCreationForm):
         self.fields["username"].help_text = ''
         self.fields["password1"].help_text = ''
         self.fields["password2"].help_text = ''
+        self.fields["username"].label_suffix = ''
+        self.fields["email"].label_suffix = ''
+        self.fields["password1"].label_suffix = ''
+        self.fields["password2"].label_suffix = ''
 
 class UserUpdateForm(forms.ModelForm):
     class Meta:
@@ -29,3 +33,5 @@ class UserUpdateForm(forms.ModelForm):
         self.fields['username'].label = 'ユーザー名'
         self.fields['email'].label = 'メールアドレス'
         self.fields["username"].help_text = ''
+        self.fields['username'].label_suffix = ''
+        self.fields['email'].label_suffix = ''
