@@ -8,7 +8,11 @@
     <div class="result-container">
         <div class="result">
             <h3>結果発表</h3>
+            {%if percent == 1%}
+            <h4 class="char-h4">&emsp;&emsp;&emsp;&emsp;蛙化度:<span class="char-1">&emsp;0&emsp;</span>%</h4>
+            {% else %}
             <h4 class="char-h4">&emsp;&emsp;&emsp;&emsp;蛙化度:<span class="char-1">&emsp;{{percent}}&emsp;</span>%</h4>
+            {%endif%}
             {% if percent >= 90  %}
             <h4>
               カエルになっちゃう！？

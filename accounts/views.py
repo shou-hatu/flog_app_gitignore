@@ -7,6 +7,7 @@ from django.db.models import Max, Min
 from .forms import SignupForm, UserUpdateForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import UpdateView
+from django.db.models import Q
 User = get_user_model()
 
 
@@ -29,12 +30,14 @@ def user_profile_view(request, username):
     user = User.objects.get(username=username)  
     # usernameフィールドと受け取った入力値が等しくなるような行を抽出
     player_result = Player_result.objects.filter(user=user)
-    max_rate_invite = player_result.aggregate(Max('flog_rate_invite'))['flog_rate_invite__max']
-    max_rate_date = player_result.aggregate(Max('flog_rate_date'))['flog_rate_date__max']
-    max_rate_confession = player_result.aggregate(Max('flog_rate_confession'))['flog_rate_confession__max']
-    min_rate_invite = player_result.aggregate(Min('flog_rate_invite'))['flog_rate_invite__min']
-    min_rate_date = player_result.aggregate(Min('flog_rate_date'))['flog_rate_date__min']
-    min_rate_confession = player_result.aggregate(Min('flog_rate_confession'))['flog_rate_confession__min']
+    print(player_result)
+    # __gt=0で０より大きいレコードのみを抽出
+    max_rate_invite = player_result.filter(flog_rate_invite__gt=0).aggregate(Max('flog_rate_invite'))['flog_rate_invite__max']
+    max_rate_date = player_result.filter(flog_rate_date__gt=0).aggregate(Max('flog_rate_date'))['flog_rate_date__max']
+    max_rate_confession = player_result.filter(flog_rate_confession__gt=0).aggregate(Max('flog_rate_confession'))['flog_rate_confession__max']
+    min_rate_invite = player_result.filter(flog_rate_invite__gt=0).aggregate(Min('flog_rate_invite'))['flog_rate_invite__min']
+    min_rate_date = player_result.filter(flog_rate_date__gt=0).aggregate(Min('flog_rate_date'))['flog_rate_date__min']
+    min_rate_confession = player_result.filter(flog_rate_confession__gt=0).aggregate(Min('flog_rate_confession'))['flog_rate_confession__min']
     print(max_rate_invite)
     params = {
         'player_result': player_result,
@@ -83,7 +86,3 @@ class ProfileEditView(LoginRequiredMixin, UpdateView): # 追加
     
     def get_object(self):
         return self.request.user
-
-def logout_view(request):
-    logout(request)
-    return redirect('welcome:welcome')

@@ -20,13 +20,25 @@
                     <div class="min-container">
                         <label class="label">ハイスコア</label>
                         <div class="smallbox">
+                            {%if min_rate_invite == 1 %}
+                            <span class="text">デートの誘い方編</span><span class="value">0%</span>
+                            {% else %}
                             <span class="text">デートの誘い方編</span><span class="value">{{min_rate_invite}}%</span>
+                            {% endif %}
                         </div>
                         <div class="smallbox">
+                            {%if min_rate_date == 1 %}
+                            <span class="text">デートの誘い方編</span><span class="value">0%</span>
+                            {% else %}
                             <span class="text">デート中編</span><span class="value">{{min_rate_date}}%</span>
+                            {% endif %}
                         </div>
                         <div class="smallbox">
+                            {%if min_rate_confession == 1 %}
+                            <span class="text">デートの誘い方編</span><span class="value">0%</span>
+                            {% else %}
                             <span class="text">告白前のデート編</span><span class="value">{{min_rate_confession}}%</span>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="max-container">
